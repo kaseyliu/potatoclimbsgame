@@ -13,18 +13,30 @@ public class walking_potato : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    [SerializeField] Animator animator;
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     Debug.Log("Space bar pressed!");
+        // }
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            animator.SetBool("IsJumping", true);
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            animator.SetBool("IsJumping", true);
+        }
+        if (rb.velocity.y <= 0f)
+        {
+            animator.SetBool("IsJumping", false);
         }
 
         Flip();
@@ -34,6 +46,11 @@ public class walking_potato : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
+
+//    public void OnLanding()
+//     {
+//         animator.SetBool("IsJumping", false);
+//     }
 
     private bool IsGrounded()
     {
