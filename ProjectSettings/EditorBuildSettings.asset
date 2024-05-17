@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/intro cutscene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/begin_dialogue.unity
+    guid: 626ba2d6af3eabb479c214faafc1c9b5
+  - enabled: 1
     path: Assets/Scenes/level_1.unity
     guid: 899a3f6661ec3cb4eb6a96155a6c58b7
   m_configObjects: {}
