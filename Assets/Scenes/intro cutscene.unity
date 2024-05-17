@@ -5522,7 +5522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeTime: 14
-  sceneName: level_1
+  sceneName: begin_dialogue
 --- !u!4 &1735569294
 Transform:
   m_ObjectHideFlags: 0
