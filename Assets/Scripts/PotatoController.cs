@@ -20,6 +20,8 @@ public class PotatoController : MonoBehaviour
     public GameObject fallDetector;
     public string sceneName;
 
+    public AudioSource sound; 
+
     void Start() 
     {
         respawnPoint = transform.position;
@@ -28,15 +30,17 @@ public class PotatoController : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Debug.Log("Space bar pressed!");
-        // }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            sound.Play();
+            Debug.Log("Space bar pressed!");
+        }
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             animator.SetBool("IsJumping", true);
+
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
