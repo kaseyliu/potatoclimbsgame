@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour
 {
@@ -10,10 +11,15 @@ public class DialogueBox : MonoBehaviour
     public string[] lines; 
     [SerializeField] float textSpeed; 
     private int index; 
+    public Button end;
+    
+    public string sceneName;
     
     // Start is called before the first frame update
     void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
         textComponent.text = string.Empty; 
         StartDialogue(); 
     }
@@ -52,8 +58,12 @@ public class DialogueBox : MonoBehaviour
         }
         else{
             gameObject.SetActive(false);
+            if (sceneName == "begin_dialogue"){
             SceneManager.LoadScene(3); 
-
+            }
+            if (sceneName == "ending_cutscene"){
+                end.gameObject.SetActive(true);
+            }
         }
     }
 }

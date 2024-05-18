@@ -343,10 +343,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1396987454}
   lines:
-  - 'TateTopper: Oh no, I fell down from my home, I need to climb back up'
-  - 'TateTopper: Good thing I''ve been practicing!'
-  - 'TateTopper: Press space to jump and climb up the mountain!'
+  - 'TaterTopper: Oh no, I fell down from my home, I need to climb back up'
+  - 'TaterTopper: Good thing I''ve been practicing!'
+  - 'TaterTopper: Press space to jump and climb up the mountain!'
+  - 'TaterTopper: Move around with ASD or the Arrow keys'
   textSpeed: 0
+  end: {fileID: 0}
+  sceneName: 
 --- !u!1 &334333187
 GameObject:
   m_ObjectHideFlags: 0

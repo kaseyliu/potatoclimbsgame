@@ -10,6 +10,10 @@ public class changeScene : MonoBehaviour
         SceneManager.LoadScene(1); 
     }
 
+    public void startGame(){
+        SceneManager.LoadScene(0); 
+    }
+
     public void playLvl1(){
         SceneManager.LoadScene(2); 
     }
