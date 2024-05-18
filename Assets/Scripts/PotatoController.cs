@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class walking_potato : MonoBehaviour
+public class PotatoController : MonoBehaviour
 {
     private float horizontal;
     [SerializeField] float speed = 8f;
@@ -14,6 +14,14 @@ public class walking_potato : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     [SerializeField] Animator animator;
+
+    private Vector3 respawnPoint;
+    public GameObject fallDetector;
+
+    void Start() 
+    {
+        respawnPoint = transform.position;
+    }
 
     void Update()
     {
@@ -39,7 +47,21 @@ public class walking_potato : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
 
+        fallDetector.transform.position = new Vector2(transform.position.x, fallDetector.transform.position.y); 
+
         Flip();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "FallDetector")
+        {
+            transform.position = respawnPoint;
+        }
+        else if(collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
     }
 
     private void FixedUpdate()
