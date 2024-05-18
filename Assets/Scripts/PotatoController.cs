@@ -25,6 +25,7 @@ public class PotatoController : MonoBehaviour
     void Start() 
     {
         respawnPoint = transform.position;
+        sound.volume = 0.5f;
     }
 
     void Update()
