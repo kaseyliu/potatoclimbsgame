@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PotatoController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PotatoController : MonoBehaviour
 
     private Vector3 respawnPoint;
     public GameObject fallDetector;
+    public string sceneName;
 
     void Start() 
     {
@@ -61,6 +63,10 @@ public class PotatoController : MonoBehaviour
         else if(collision.tag == "Checkpoint")
         {
             respawnPoint = transform.position;
+        }
+        else if(collision.tag == "Finish")
+        {
+            SceneManager.LoadScene(sceneName); 
         }
     }
 
